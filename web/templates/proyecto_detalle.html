@@ -1,0 +1,118 @@
+<!-- Continuación de Detalle de Proyecto (proyecto_detalle.html) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ proyecto.titulo }}{% endblock %}
+
+{% block content %}
+<!-- Proyecto Header -->
+<section class="project-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h1>{{ proyecto.titulo }}</h1>
+                <p class="lead">{{ proyecto.categoria.nombre }}</p>
+                <div class="project-meta">
+                    <span><i class="far fa-calendar-alt"></i> {{ proyecto.fecha_creacion|date:"F Y" }}</span>
+                    {% if proyecto.url_demo %}
+                    <a href="{{ proyecto.url_demo }}" target="_blank" class="btn btn-sm btn-primary ms-2">
+                        <i class="fas fa-external-link-alt me-1"></i> Demo
+                    </a>
+                    {% endif %}
+                    {% if proyecto.url_github %}
+                    <a href="{{ proyecto.url_github }}" target="_blank" class="btn btn-sm btn-dark ms-2">
+                        <i class="fab fa-github me-1"></i> GitHub
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Proyecto Contenido -->
+<section class="project-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Imagen Principal -->
+                <div class="project-main-img mb-4" data-aos="fade-up">
+                    <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}" class="img-fluid rounded shadow">
+                </div>
+                
+                <!-- Descripción -->
+                <div class="project-description mb-5" data-aos="fade-up">
+                    <h2>Descripción del Proyecto</h2>
+                    <div class="content">
+                        {{ proyecto.descripcion|linebreaks }}
+                    </div>
+                </div>
+
+                <!-- Tecnologías -->
+                <div class="project-technologies mb-5" data-aos="fade-up">
+                    <h2>Tecnologías Utilizadas</h2>
+                    <div class="tech-list">
+                        {% for tech in proyecto.tecnologias.all %}
+                        <span class="tech-badge">
+                            <i class="fab {{ tech.icono }}"></i> {{ tech.nombre }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Galería de Imágenes -->
+                {% if proyecto.imagenes.all %}
+                <div class="project-gallery mb-5" data-aos="fade-up">
+                    <h2>Galería</h2>
+                    <div class="row g-3">
+                        {% for imagen in proyecto.imagenes.all %}
+                        <div class="col-md-6">
+                            <div class="gallery-item">
+                                <img src="{{ imagen.imagen.url }}" alt="{{ imagen.titulo|default:proyecto.titulo }}" class="img-fluid rounded">
+                                {% if imagen.titulo %}
+                                <div class="caption">{{ imagen.titulo }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Proyectos Relacionados -->
+<section class="related-projects py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2>Proyectos Relacionados</h2>
+            <p>Explora proyectos similares</p>
+        </div>
+        <div class="row g-4">
+            {% for rel_proyecto in proyectos_relacionados %}
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="{{ rel_proyecto.imagen_principal.url }}" alt="{{ rel_proyecto.titulo }}" class="img-fluid">
+                        <div class="overlay">
+                            <a href="{% url 'proyecto_detalle' rel_proyecto.slug %}" class="btn btn-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category">{{ rel_proyecto.categoria.nombre }}</span>
+                        <h3><a href="{% url 'proyecto_detalle' rel_proyecto.slug %}">{{ rel_proyecto.titulo }}</a></h3>
+                        <p>{{ rel_proyecto.descripcion|truncatechars:100 }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No hay proyectos relacionados disponibles.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,166 @@
+<!-- Plantilla Base (base.html) -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Portafolio{% endblock %}</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Contenedor del loader (se muestra mientras la página carga) -->
+    <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+        <img src="{% static 'img/ajax-loader.gif' %}" alt="Cargando...">
+    </div>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                            href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/proyectos/' in request.path %}active{% endif %}"
+                            href="{% url 'proyectos' %}">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}"
+                            href="{% url 'about' %}">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}"
+                            href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenido Principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <a href="https://wa.me/+56954363425" class="whatsapp-fijo" target="_blank">
+        <div
+            style="text-align: center; color: hsla(178, 81%, 15%, 0.685); font-weight: bold; font-size: 14px; margin-bottom: 5px;">
+            ¡Hablemos!
+        </div>
+        <img src="{% static 'img/ws1.png' %}" alt="WhatsApp" width="60" height="60"
+            style="border-radius: 50%; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);">
+    </a>
+
+    <style>
+        main {
+            padding-top: 50px;
+            /* Ajusta este valor según la altura de tu navbar */
+        }
+
+        .whatsapp-fijo {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            z-index: 1000 !important;
+            text-align: center !important;
+        }
+
+        .whatsapp-fijo img {
+            border-radius: 50% !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important;
+            width: 60px !important;
+            height: 60px !important;
+        }
+
+        .whatsapp-fijo div {
+            color: hsla(178, 81%, 15%, 0.685) !important;
+            font-weight: bold !important;
+            font-size: 14px !important;
+            margin-bottom: 5px !important;
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3"><span class="text-primary">&lt;</span>Donni Plaza<span
+                            class="text-primary">/&gt;</span></h5>
+                    <p>Ingeniero en Informática especializado en desarrollo web y aplicaciones.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
+                        <li><a href="{% url 'proyectos' %}" class="text-white">Proyectos</a></li>
+                        <li><a href="{% url 'about' %}" class="text-white">Sobre Mí</a></li>
+                        <li><a href="{% url 'contacto' %}" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Conéctate</h5>
+                    <div class="social-icons">
+                        <a href="https://github.com/Donnyjpl/" target="_blank" class="text-white me-2"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank"
+                            class="text-white me-2"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:donnyjpl@email.com" class="text-white"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; {% now "Y" %} Donni Plaza. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("loading").style.display =
+                "none"; // Oculta el loader cuando la página termina de cargar
+        };
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Cambiar color de navbar al hacer scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

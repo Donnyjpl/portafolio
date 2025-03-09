@@ -1,0 +1,109 @@
+
+<!-- Página de Proyectos (proyectos.html) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mis Proyectos{% endblock %}
+
+{% block content %}
+<!-- Proyectos Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h1>Mis Proyectos</h1>
+                <p class="lead">Explora mi trabajo y proyectos recientes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filtros -->
+<section class="filter-section py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filters" data-aos="fade-up">
+                    <div class="categories">
+                        <a href="{% url 'proyectos' %}" class="btn {% if not categoria_actual %}btn-primary{% else %}btn-outline-primary{% endif %} mb-2">Todos</a>
+                        {% for cat in categorias %}
+                        <a href="{% url 'proyectos_por_categoria' cat.slug %}" class="btn {% if categoria_actual.id == cat.id %}btn-primary{% else %}btn-outline-primary{% endif %} mb-2">{{ cat.nombre }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lista de Proyectos -->
+<section class="projects-list py-4">
+    <div class="container">
+        <div class="row g-4">
+            {% for proyecto in proyectos %}
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}" class="img-fluid">
+                        <div class="overlay">
+                            <a href="{% url 'proyecto_detalle' proyecto.slug %}" class="btn btn-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category">{{ proyecto.categoria.nombre }}</span>
+                        <h3><a href="{% url 'proyecto_detalle' proyecto.slug %}">{{ proyecto.titulo }}</a></h3>
+                        <p>{{ proyecto.descripcion|truncatechars:100 }}</p>
+                        <div class="tech-tags">
+                            {% for tech in proyecto.tecnologias.all|slice:":3" %}
+                            <span class="tech-tag"><i class="fab {{ tech.icono }}"></i> {{ tech.nombre }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No hay proyectos disponibles en esta categoría.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Paginación -->
+        {% if is_paginated %}
+        <div class="pagination-container mt-5 text-center" data-aos="fade-up">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; Primera</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                </li>
+                {% endif %}
+                
+                {% for i in paginator.page_range %}
+                    {% if page_obj.number == i %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ i }}</span>
+                    </li>
+                    {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ paginator.num_pages }}">Última &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

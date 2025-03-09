@@ -1,0 +1,300 @@
+<!-- Página Sobre Mí (about.html) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre Mí{% endblock %}
+
+{% block content %}
+<!-- About Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h1>Sobre Mí</h1>
+                <p class="lead">Conoce más sobre mi experiencia y habilidades</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="about-img">
+                    <img src="{% static 'img/profile.jpg' %}" alt="Tu Nombre" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="about-content">
+                    <h2>Donni Plaza</h2>
+                    <h4 class="text-primary mb-3">Ingeniero en Informática</h4>
+                    <p>Soy un ingeniero en informática apasionado por el desarrollo de software y la creación de
+                        soluciones innovadoras. Con experiencia en desarrollo web y aplicaciones, me especializo en
+                        crear productos digitales de alta calidad que satisfacen las necesidades de los usuarios.</p>
+                    <p>A lo largo de mi carrera, he trabajado en diversos proyectos que abarcan desde sitios web
+                        corporativos hasta aplicaciones web complejas. Mi enfoque se centra en la calidad del código, el
+                        rendimiento y la experiencia del usuario.</p>
+
+                    <div class="about-info mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <h5>Email:</h5>
+                                    <p>donnyjpl@gmail.com</p>
+                                </div>
+                                <div class="info-item">
+                                    <h5>Teléfono:</h5>
+                                    <p>+56 954363425</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <h5>Ubicación:</h5>
+                                    <p>Santiago, Chile</p>
+                                </div>
+                                <div class="info-item">
+                                    <h5>Disponibilidad:</h5>
+                                    <p>Disponible para proyectos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="{% static 'files/Cv Donni J Plaza L .pdf' %}" class="btn btn-primary me-2" download>Descargar CV</a>
+                        <a href="{% url 'contacto' %}" class="btn btn-outline-primary">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section class="experience-section py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2>Mi Experiencia</h2>
+            <p>Trayectoria profesional y académica</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="mb-4">Experiencia Laboral</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="date">2017 - Presente</span>
+                        <h4>Desarrollador Independiente</h4>
+                        <p class="company">Freelance</p>
+                        <p>Desarrollo de aplicaciones web personalizadas, consultoría en tecnologías de la información y automatización de procesos para empresas y emprendimientos.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">2011 - 2017</span>
+                        <h4>Coordinador de Tecnología</h4>
+                        <p class="company">Corporación del Cacao Venezolano</p>
+                        <p>Supervisión y gestión de infraestructura tecnológica, implementación de soluciones digitales para optimizar procesos y soporte técnico a nivel empresarial.</p>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="mb-4">Educación</h3>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <span class="date">2024</span>
+                        <h4>BOOTCAMP DESARROLLO APLICACIONES FULL STACK PYTHON TRAINEE</h4>
+                        <p class="company">Talento Digital para Chile</p>
+                        <p> Desarrollador de aplicaciones full stack python trainee, será capaz de crear eficientemente
+                            aplicaciones web dinámicas y seguras, capaz de manejar la ciencia de datos de una
+                            organización a través del framework Django. Podrá desarrollarse desde empresas dedicadas a
+                            la inteligencia de negocios a organizaciones nacionales e internacionales de TI.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">2016</span>
+                        <h4>Diplomado de Programacion Web</h4>
+                        <p class="company">Instituto Comunicacion web C.A. j-29431337-0</p>
+                        <p>Certificación especializada en desarrollo web.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">2010 - 2016</span>
+                        <h4>Ingeniería en Informática</h4>
+                        <p class="company">Universidad PolitecnicaTerritoria de Barlovento Argelia Laya</p>
+                        <p>Especialización en desarrollo de software y sistemas de información.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section class="skills-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2>Mis Habilidades</h2>
+            <p>Competencias técnicas y profesionales</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="mb-4">Habilidades Técnicas</h3>
+                <div class="skills">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Python / Django</h5>
+                            <p>90%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>JavaScript / React</h5>
+                            <p>85%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>HTML / CSS</h5>
+                            <p>95%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>SQL / Bases de Datos</h5>
+                            <p>80%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="mb-4">Habilidades Profesionales</h3>
+                <div class="skills">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Gestión de Proyectos</h5>
+                            <p>85%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Trabajo en Equipo</h5>
+                            <p>95%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Comunicación</h5>
+                            <p>90%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Resolución de Problemas</h5>
+                            <p>90%</p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonios (opcional) -->
+<section class="testimonials-section py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2>Testimonios</h2>
+            <p>Lo que dicen mis clientes y colegas</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Excelente profesional. Entregó el proyecto antes de lo previsto y con una calidad
+                            excepcional. Sin duda, volveré a contar con sus servicios en el futuro."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>Juan Pérez</h5>
+                            <p>CEO, Empresa ABC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Su habilidad para entender nuestras necesidades y convertirlas en soluciones prácticas fue
+                            impresionante. Recomiendo completamente sus servicios."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>María García</h5>
+                            <p>Directora de Proyectos, XYZ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Muy profesional y comunicativo durante todo el proceso. El resultado final superó nuestras
+                            expectativas. Definitivamente volveremos a trabajar juntos."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>Carlos Rodríguez</h5>
+                            <p>Fundador, Startup 123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

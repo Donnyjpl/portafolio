@@ -1,0 +1,28 @@
+
+<!-- Página de Éxito de Contacto (contacto_exito.html) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mensaje Enviado{% endblock %}
+
+{% block content %}
+<section class="success-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center" data-aos="zoom-in">
+                <div class="success-content">
+                    <div class="icon-box">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1>¡Mensaje Enviado con Éxito!</h1>
+                    <p class="lead">Gracias por contactarme. He recibido tu mensaje y me pondré en contacto contigo lo antes posible.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'home' %}" class="btn btn-primary me-2">Volver al Inicio</a>
+                        <a href="{% url 'proyectos' %}" class="btn btn-outline-primary">Ver Proyectos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

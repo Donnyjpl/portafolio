@@ -1,0 +1,126 @@
+
+<!-- Página de Contacto (contacto.html) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<!-- Contacto Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h1>Contáctame</h1>
+                <p class="lead">¿Tienes un proyecto interesante? Hablemos sobre ello.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Formulario de Contacto -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="contact-info mb-5 mb-md-0">
+                    <h2>Información de Contacto</h2>
+                    <p class="mb-4">No dudes en contactarme para cualquier consulta, proyecto o colaboración. Estaré encantado de escuchar tus ideas.</p>
+                    
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="text">
+                            <h5>Ubicación</h5>
+                            <p>Santiago, Chile</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon"><i class="far fa-envelope"></i></div>
+                        <div class="text">
+                            <h5>Email</h5>
+                            <p>Donnyjpl@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="text">
+                            <h5>Teléfono</h5>
+                            <p>+56-954363425</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links mt-4">
+                        <a href="https://github.com/Donnyjpl/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="mailto:donnyjpl@email.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="contact-form">
+                    <h2>Envíame un Mensaje</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        {% if messages %}
+                        <div class="alert alert-success">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.nombre.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.email.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.asunto.id_for_label }}" class="form-label">Asunto</label>
+                            {{ form.asunto }}
+                            {% if form.asunto.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.asunto.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.mensaje.id_for_label }}" class="form-label">Mensaje</label>
+                            {{ form.mensaje }}
+                            {% if form.mensaje.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.mensaje.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
