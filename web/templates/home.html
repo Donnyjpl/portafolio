@@ -16,21 +16,15 @@
                 <p class="lead mb-4">Especializado en desarrollo web y aplicaciones innovadoras que resuelven problemas reales.</p>
                 <div class="hero-btns">
                     <a href="{% url 'proyectos' %}" class="btn btn-primary me-3">Ver Proyectos</a>
-                    <a href="{% url 'contacto' %}" class="btn btn-outline-light">Contacto</a>
+                    <a href="{% url 'contacto' %}" class="btn btn-outline-dark">Contacto</a>
                 </div>
             </div>
-            <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+            <div class="col-lg-5 d-lg-block" data-aos="fade-left">
                 <img src="{% static 'img/deve.jpg' %}" alt="Developer Illustration" class="img-fluid">
             </div>
         </div>
     </div>
-    <div class="hero-shape">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1" d="M0,192L48,208C96,224,192,256,288,250.7C384,245,480,203,576,192C672,181,768,203,864,224C960,245,1056,267,1152,250.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-    </div>
 </section>
-
 <!-- Servicios Section -->
 <section class="services-section py-5">
     <div class="container">
@@ -162,4 +156,152 @@
         </div>
     </div>
 </section>
+
+<!-- Sección de Precios -->
+<section class="pricing-section py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2>Mis Servicios y Precios</h2>
+            <p>Soluciones web a la medida para tus necesidades</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <!-- Plan Portafolio/Informativa -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="price-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Página Portafolio</h3>
+                        <div class="price">
+                            <span class="currency" id="currencySymbol1">$</span>
+                            <span class="amount" id="priceAmount1">300</span>
+                        </div>
+                        <p class="text-muted">Perfecta para profesionales y pequeños negocios</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-primary"></i> Diseño web responsive</li>
+                            <li><i class="fas fa-check text-primary"></i> Hasta 5 secciones</li>
+                            <li><i class="fas fa-check text-primary"></i> Diseño de logotipo</li>
+                            <li><i class="fas fa-check text-primary"></i> Dominio por 1 año</li>
+                            <li><i class="fas fa-check text-primary"></i> Hosting por 1 año</li>
+                            <li><i class="fas fa-check text-primary"></i> Correo corporativo</li>
+                            <li><i class="fas fa-check text-primary"></i> Optimización SEO básica</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="{% url 'contacto' %}?plan=portafolio" class="btn btn-primary">Solicitar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan E-commerce -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Más Popular</div>
+                    <div class="pricing-header">
+                        <div class="price-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3>Página E-commerce</h3>
+                        <div class="price">
+                            <span class="currency" id="currencySymbol2">$</span>
+                            <span class="amount" id="priceAmount2">400</span>
+                        </div>
+                        <p class="text-muted">Ideal para tiendas en línea</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-primary"></i> Diseño web responsive</li>
+                            <li><i class="fas fa-check text-primary"></i> Hasta 10 secciones</li>
+                            <li><i class="fas fa-check text-primary"></i> Diseño de logotipo</li>
+                            <li><i class="fas fa-check text-primary"></i> Dominio por 1 año</li>
+                            <li><i class="fas fa-check text-primary"></i> Hosting por 1 año</li>
+                            <li><i class="fas fa-check text-primary"></i> Correo corporativo</li>
+                            <li><i class="fas fa-check text-primary"></i> Panel autoadministrable</li>
+                            <li><i class="fas fa-check text-primary"></i> Integración con pagos</li>
+                            <li><i class="fas fa-check text-primary"></i> Optimización SEO avanzada</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="{% url 'contacto' %}?plan=ecommerce" class="btn btn-primary">Solicitar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan Aplicación Web -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="price-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Aplicación Web</h3>
+                        <div class="price">
+                            <span class="quote">Presupuesto</span>
+                            <span class="amount">Personalizado</span>
+                        </div>
+                        <p class="text-muted">Soluciones a medida para tu negocio</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-primary"></i> Desarrollo a medida</li>
+                            <li><i class="fas fa-check text-primary"></i> Interfaces personalizadas</li>
+                            <li><i class="fas fa-check text-primary"></i> Integración con APIs</li>
+                            <li><i class="fas fa-check text-primary"></i> Base de datos escalable</li>
+                            <li><i class="fas fa-check text-primary"></i> Panel administrativo</li>
+                            <li><i class="fas fa-check text-primary"></i> Automatización de procesos</li>
+                            <li><i class="fas fa-check text-primary"></i> Soporte técnico extendido</li>
+                            <li><i class="fas fa-check text-primary"></i> Capacitación incluida</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="{% url 'contacto' %}?plan=aplicacion" class="btn btn-primary">Agendar Reunión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="row mt-5">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <div class="pricing-info-card">
+                    <h4><i class="fas fa-info-circle"></i> ¿Necesitas algo más específico?</h4>
+                    <p>Todos los proyectos son diferentes. Si requieres funcionalidades adicionales o tienes necesidades específicas, podemos adaptar cualquiera de nuestros planes. Contáctame para una cotización personalizada.</p>
+                    <a href="{% url 'contacto' %}" class="btn btn-outline-primary mt-3">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Usar ipinfo.io para detectar la localización del usuario
+    fetch('https://ipinfo.io/json?token=c5672e62797a34')
+        .then(response => response.json())
+        .then(data => {
+            const country = data.country; // Obtenemos el código del país
+
+            // Cambiar precios según el país (Chile - CL)
+            if (country === 'CL') {
+                document.getElementById("currencySymbol1").textContent = 'CLP $';
+                document.getElementById("priceAmount1").textContent = '200.000'; // El precio en pesos chilenos
+
+                document.getElementById("currencySymbol2").textContent = 'CLP $';
+                document.getElementById("priceAmount2").textContent = '300.000'; // El precio en pesos chilenos
+            } else {
+                document.getElementById("currencySymbol1").textContent = '$';
+                document.getElementById("priceAmount1").textContent = '300'; // El precio en dólares
+
+                document.getElementById("currencySymbol2").textContent = '$';
+                document.getElementById("priceAmount2").textContent = '500'; // El precio en dólares
+            }
+        })
+        .catch(error => {
+            console.error("Error al obtener la localización:", error);
+        });
+</script>
+
 {% endblock %}
