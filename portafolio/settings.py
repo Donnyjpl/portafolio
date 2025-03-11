@@ -25,19 +25,18 @@ env.read_env(env_file)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-GEOIP_PATH = '/path/a/tu/base_de_datos_geoip'  # Ruta a tu base de datos geoip
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-&29k8*gal07tp9z7m1l=n%autc8x)+br=_x-*e@$a0v-x+8ewq"
+SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','147.93.67.92']
 
 # Application definition
 
