@@ -125,12 +125,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# Para el manejo de archivos de medios
+#Para el manejo de archivos de medios
 STATIC_URL = '/static/'
 STATIC_ROOT='/var/www/donnyplaza/staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/var/www/donnyplaza/media'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
