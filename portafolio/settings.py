@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','147.93.67.92']
+ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','cv852lcb4alc8u6tur1g.147.93.67.92']
 
 # Application definition
 
