@@ -1,6 +1,9 @@
 
 from django.urls import path
 from . import views
+from django.conf.urls import handler404
+
+handler404 = 'web.views.pagina_no_encontrada'
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),

@@ -8,6 +8,10 @@ from .forms import ContactoForm
 from django.core.mail import EmailMultiAlternatives
 
 
+
+def pagina_no_encontrada(request, exception):
+    return render(request, '404.html', status=404)
+
 class HomeView(ListView):
     model = Proyecto
     template_name = 'home.html'
