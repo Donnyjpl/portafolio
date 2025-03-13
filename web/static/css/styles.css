@@ -1,0 +1,699 @@
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --dark-color: #1a1a2e;
+    --light-color: #f8f9fa;
+    --gray-color: #6c757d;
+    --success-color: #4CAF50;
+    --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+}
+
+/* Reset y Elementos Básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-title {
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    transform: translateX(-50%);
+}
+
+.btn {
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+/* Loader */
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+@media (max-width: 991px) {
+    /* Ajustes para el menú en dispositivos móviles */
+    .navbar-collapse {
+        background-color: #343a40;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+        margin-top: 10px;
+    }
+    
+    /* Mejora la visibilidad de los ítems del menú */
+    .navbar-nav .nav-item {
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    /* Asegúrate que el botón hamburguesa sea visible */
+    .navbar-toggler {
+        border: 1px solid rgba(255,255,255,0.5);
+    }
+    
+    /* Asegúrate que el menú desplegable aparezca debajo de la navbar */
+    .navbar-collapse {
+        position: absolute;
+        top: 56px; /* Ajusta según la altura de tu navbar */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}
+/* Estilo para el fondo del loader */
+#loading img {
+    width: 50px; /* Tamaño del loader */
+    height: 50px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: var(--dark-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Ajuste para la imagen */
+.hero-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto; /* Permite que el tamaño se ajuste automáticamente */
+        padding: 0 15px; /* Añade algo de espacio en los lados */
+    }
+
+    .hero-section .container {
+        padding: 0; /* Evita márgenes innecesarios */
+    }
+
+    .hero-section .row {
+        flex-direction: column; /* Mueve las columnas una debajo de la otra en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .hero-section .col-lg-7, .hero-section .col-lg-5 {
+        text-align: center; /* Centra el contenido */
+        width: 100%; /* Asegura que ocupen el 100% en pantallas pequeñas */
+    }
+
+    .hero-section img {
+        margin-top: 20px; /* Agrega algo de espacio arriba de la imagen en pantallas pequeñas */
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
+    }
+}
+
+
+.hero-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Services Section */
+.service-card {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    background-color: white;
+
+}
+    /* Estilos generales */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f4f4f9;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-weight: bold;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+
+    /* Header con video */
+    header {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        margin: 0; /* Elimina cualquier margen */
+        padding: 0; /* Elimina cualquier padding */
+    }
+
+    header video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    header .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    header .content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: w;
+    }
+
+    header button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    header button:hover {
+        background: #0056b3;
+    }
+
+    /* Sección: Mis Habilidades */
+    section {
+        padding: 50px 20px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        color: #555;
+    }
+
+    /* Contenedor de habilidades */
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Tarjeta de habilidad */
+    .skill-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-card img {
+        width: 80px;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        margin-bottom: 15px;
+    }
+
+    .skill-card img:hover {
+        opacity: 1;
+    }
+
+    .skill-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    .skill-card p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Sección: Mis Servicios */
+    .services {
+        background: #fff;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .services h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .services-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .service-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card img {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Sección: Tecnologías */
+    .technologies {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .technologies h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .skills-container .skill-card img {
+        filter: none;
+        opacity: 1;
+        transition: transform 0.3s;
+    }
+
+    .skills-container .skill-card img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Sección: Proyectos Destacados */
+    .projects {
+        background: #f9f9f9;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .projects h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .project-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    .project-card p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Sección: CTA */
+    .cta {
+        background: #007bff;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .cta button {
+        background: white;
+        color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .cta button:hover {
+        background: #0056b3;
+        color: white;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 2rem;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        .service-card,
+        .project-card {
+            width: 100%;
+        }
+    }
+
+   /* Hero Section */
+.hero-section {
+    background-color: #f1f1f1; /* Fondo gris muy claro */
+    padding: 60px 0;
+    color: #333; /* Texto oscuro */
+    text-align: center;
+    margin-bottom: 30px; /* Espacio después de la sección */
+}
+
+/* Hero Section Heading and Button */
+.hero-section h1, .hero-section h2, .hero-section p {
+    color: #333; /* Color del texto en gris oscuro */
+}
+
+/* Proyectos Destacados */
+.projects-section {
+    background-color: #fafafa; /* Fondo gris muy claro */
+    padding: 60px 0;
+    margin-bottom: 30px; /* Espacio después de la sección */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0; /* Línea de separación debajo de la sección */
+}
+
+.projects-section h2 {
+    margin-bottom: 30px;
+}
+
+/* CTA Contacto */
+.cta-section {
+    background-color: #eeeeee; /* Fondo gris claro */
+    color: #333;
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 30px; /* Espacio después de la sección */
+    border-bottom: 2px solid #e0e0e0; /* Línea de separación debajo de la sección */
+}
+
+/* Ajuste de los botones en el Hero y CTA */
+.hero-btns a, .cta-section a {
+    margin-top: 20px;
+}
+
+/* Asegurarse que las imágenes sean responsivas */
+.hero-section .img-fluid, .projects-section .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo de la sección de "Proyectos Destacados" (en el contenedor de las tarjetas) */
+.projects-section .project-card {
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Hero Section: Fondo de imagen */
+.hero-section .hero-btns {
+    display: flex;
+    justify-content: center;
+}
+
+/* Agregar márgenes a las tarjetas de proyectos */
+.projects-section .project-card .project-info {
+    padding: 15px;
+}
+
+.projects-section .project-card .project-info h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Separación entre secciones */
+.hero-section, .projects-section, .cta-section {
+    margin-bottom: 30px; /* Espacio entre las secciones */
+}
+
+/* Modificaciones del texto en las secciones */
+.projects-section .category, .cta-section h2, .cta-section p {
+    color: #333;
+}
+
+.whatsapp-fijo {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 1000 !important;
+    text-align: center !important;
+}
+
+.whatsapp-fijo img {
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important;
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.whatsapp-fijo div {
+    color: hsla(178, 81%, 15%, 0.685) !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+}
+
+
+/* Estilo para el Footer */
+footer {
+    background-color: #343a40;
+    /* Fondo oscuro */
+    color: white;
+    padding: 50px 0;
+    /* Aumenta el padding para darle más espacio */
+}
+
+footer h5 {
+    font-size: 1.8rem;
+    /* Aumenta el tamaño de los títulos */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+footer .social-icons a {
+    font-size: 2rem;
+    /* Aumenta el tamaño de los iconos */
+    color: white;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ffc107;
+    /* Color dorado cuando pasa el mouse */
+}
+
+footer .col-md-4 {
+    margin-bottom: 1.5rem;
+    /* Espacio entre las columnas */
+}
+
+/* Asegura que el contenido se vea bien en pantallas más pequeñas */
+@media (max-width: 768px) {
+    footer .social-icons a {
+        font-size: 2.5rem;
+        /* Aumenta el tamaño de los iconos en pantallas pequeñas */
+    }
+
+    footer h5 {
+        font-size: 2rem;
+        /* Aumenta el tamaño del título en pantallas pequeñas */
+    }
+}
