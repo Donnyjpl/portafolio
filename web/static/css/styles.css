@@ -612,6 +612,15 @@ img {
 /* Agregar márgenes a las tarjetas de proyectos */
 .projects-section .project-card .project-info {
     padding: 15px;
+    flex-grow: 1; /* Asegura que el contenido se expanda para ocupar el espacio disponible */
+}
+
+
+/* Imagen de las tarjetas */
+.projects-section .project-card .project-img {
+    position: relative;
+    height: 200px; /* Altura fija para la imagen */
+    overflow: hidden;
 }
 
 .projects-section .project-card .project-info h3 a {
