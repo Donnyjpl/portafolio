@@ -9,3 +9,5 @@ __pycache__/
 
 # Ignorar carpetas de dependencias de Python
 porta/
+
+portafolio/setting.py

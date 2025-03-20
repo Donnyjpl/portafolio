@@ -34,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','cv852lcb4alc8u6tur1g.147.93.67.92']
 
@@ -84,10 +84,11 @@ WSGI_APPLICATION = "portafolio.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Configuración de la base de datos
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -127,12 +128,6 @@ USE_TZ = True
 
 #Para el manejo de archivos de medios
 STATIC_URL = '/static/'
-
-
-# Si estás en producción, asegúrate de tener configurados estos dos
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 STATIC_ROOT='/var/www/donnyplaza/staticfiles'
 MEDIA_URL = '/media/'
 

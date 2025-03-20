@@ -1,120 +1,142 @@
-<!-- Página de Contacto (contacto.html) -->
 {% extends 'base.html' %}
 {% load static %}
 {% load custom_filters %}
 {% block title %}Contacto{% endblock %}
 {% block content %}
-<!-- Contacto Header -->
+<!-- Contacto Header con fondo mejorado -->
 <section class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center" data-aos="fade-up">
-                <h1 class="display-4">Contáctame</h1>
-                <p class="lead text-muted">¿Tienes un proyecto interesante? Hablemos sobre ello.</p>
+                <h1>Contáctame<s</h1> <p class="lead">¿Tienes un proyecto interesante? Hablemos sobre ello./p>
+                        <div class="divider-custom light">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="divider-custom-line"></div>
+                        </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Formulario de Contacto -->
+<!-- Formulario de Contacto con mejor espaciado y efectos visuales -->
 <section class="contact-section py-5 bg-light">
     <div class="container">
         <div class="row justify-content-center">
-            <!-- Información de Contacto -->
+            <!-- Información de Contacto con mejor diseño -->
             <div class="col-md-5" data-aos="fade-right">
-                <div class="contact-info mb-5 mb-md-0 bg-white p-4 rounded-4 shadow-lg">
-                    <h3 class="fw-bold mb-3">Información de Contacto</h3>
-                    <p class="text-muted mb-4">No dudes en contactarme para cualquier consulta, proyecto o colaboración. Estaré encantado de escuchar tus ideas.</p>
-                    
-                    <div class="contact-item mb-3">
-                        <div class="icon text-primary me-3">
-                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                <div
+                    class="contact-info mb-5 mb-md-0 bg-white p-4 rounded-4 shadow-lg h-100 border-top border-primary border-4">
+                    <h3 class="fw-bold mb-3 text-primary">Información de Contacto</h3>
+                    <p class="text-muted mb-4">No dudes en contactarme para cualquier consulta, proyecto o colaboración.
+                        Estaré encantado de escuchar tus ideas.</p>
+
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="icon text-white bg-primary p-3 rounded-circle me-3">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="text">
                             <h5 class="fw-semibold">Ubicación</h5>
-                            <p>Santiago, Chile</p>
+                            <p class="mb-0">Santiago, Chile</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item mb-3">
-                        <div class="icon text-primary me-3">
-                            <i class="far fa-envelope fa-2x"></i>
+
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="icon text-white bg-primary p-3 rounded-circle me-3">
+                            <i class="far fa-envelope"></i>
                         </div>
                         <div class="text">
                             <h5 class="fw-semibold">Email</h5>
-                            <p>Donnyjpl@gmail.com</p>
+                            <p class="mb-0">Donnyjpl@gmail.com</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item mb-3">
-                        <div class="icon text-primary me-3">
-                            <i class="fas fa-phone-alt fa-2x"></i>
+
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="icon text-white bg-primary p-3 rounded-circle me-3">
+                            <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="text">
                             <h5 class="fw-semibold">Teléfono</h5>
-                            <p>+56-954363425</p>
+                            <p class="mb-0">+56-954363425</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Formulario de Contacto -->
+
+            <!-- Formulario de Contacto con mejor diseño -->
             <div class="col-md-6" data-aos="fade-left">
-                <div class="contact-form bg-white p-4 rounded-4 shadow-lg">
-                    <h3 class="fw-bold mb-4">Envíame un Mensaje</h3>
+                <div class="contact-form bg-white p-4 rounded-4 shadow-lg h-100 border-top border-primary border-4">
+                    <h3 class="fw-bold mb-4 text-primary">Envíame un Mensaje</h3>
                     <form method="post">
                         {% csrf_token %}
-                        
+
                         {% if messages %}
-                        <div class="alert alert-success mb-4">
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
+                        <div class="alert alert-success mb-4 border-0 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-success fa-2x"></i>
+                                </div>
+                                <div>
+                                    {% for message in messages %}
+                                    <strong>¡Éxito!</strong> {{ message }}
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         {% endif %}
-                        
+
                         <div class="mb-3">
-                            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
-                            {{ form.nombre|add_class:"form-control rounded-3" }}
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label fw-semibold">
+                                <i class="fas fa-user text-primary me-2"></i>Nombre
+                            </label>
+                            {{ form.nombre|add_class:"form-control rounded-3 border-light shadow-sm" }}
                             {% if form.nombre.errors %}
-                            <div class="invalid-feedback d-block">
-                                {{ form.nombre.errors }}
+                            <div class="invalid-feedback d-block text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.nombre.errors }}
                             </div>
                             {% endif %}
                         </div>
-                        
+
                         <div class="mb-3">
-                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
-                            {{ form.email|add_class:"form-control rounded-3" }}
+                            <label for="{{ form.email.id_for_label }}" class="form-label fw-semibold">
+                                <i class="fas fa-envelope text-primary me-2"></i>Email
+                            </label>
+                            {{ form.email|add_class:"form-control rounded-3 border-light shadow-sm" }}
                             {% if form.email.errors %}
-                            <div class="invalid-feedback d-block">
-                                {{ form.email.errors }}
+                            <div class="invalid-feedback d-block text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.email.errors }}
                             </div>
                             {% endif %}
                         </div>
-                        
+
                         <div class="mb-3">
-                            <label for="{{ form.asunto.id_for_label }}" class="form-label">Asunto</label>
-                            {{ form.asunto|add_class:"form-control rounded-3" }}
+                            <label for="{{ form.asunto.id_for_label }}" class="form-label fw-semibold">
+                                <i class="fas fa-tag text-primary me-2"></i>Asunto
+                            </label>
+                            {{ form.asunto|add_class:"form-control rounded-3 border-light shadow-sm" }}
                             {% if form.asunto.errors %}
-                            <div class="invalid-feedback d-block">
-                                {{ form.asunto.errors }}
+                            <div class="invalid-feedback d-block text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.asunto.errors }}
                             </div>
                             {% endif %}
                         </div>
-                        
-                        <div class="mb-3">
-                            <label for="{{ form.mensaje.id_for_label }}" class="form-label">Mensaje</label>
-                            {{ form.mensaje|add_class:"form-control rounded-3" }}
+
+                        <div class="mb-4">
+                            <label for="{{ form.mensaje.id_for_label }}" class="form-label fw-semibold">
+                                <i class="fas fa-comment-alt text-primary me-2"></i>Mensaje
+                            </label>
+                            {{ form.mensaje|add_class:"form-control rounded-3 border-light shadow-sm" }}
                             {% if form.mensaje.errors %}
-                            <div class="invalid-feedback d-block">
-                                {{ form.mensaje.errors }}
+                            <div class="invalid-feedback d-block text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.mensaje.errors }}
                             </div>
                             {% endif %}
                         </div>
-                        
+
                         <div class="text-end">
-                            <button type="submit" class="btn btn-primary rounded-3 px-4 py-2">Enviar Mensaje</button>
+                            <button type="submit" class="btn btn-primary rounded-3 px-4 py-2 shadow">
+                                <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -122,4 +144,58 @@
         </div>
     </div>
 </section>
+
+<!-- Agregar una sección adicional para FAQ o términos si se desea -->
+<section class="additional-info py-5 bg-white">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-10">
+                <h3 class="fw-bold mb-4">Preguntas Frecuentes</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="icon-box mb-3">
+                                    <i class="fas fa-clock text-primary fa-2x"></i>
+                                </div>
+                                <h5 class="card-title">Tiempo de Respuesta</h5>
+                                <p class="card-text text-muted">Respondo a todas las consultas en un plazo de 24-48
+                                    horas laborables.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="icon-box mb-3">
+                                    <i class="fas fa-handshake text-primary fa-2x"></i>
+                                </div>
+                                <h5 class="card-title">Colaboraciones</h5>
+                                <p class="card-text text-muted">Estoy abierto a colaboraciones en proyectos interesantes
+                                    y desafiantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="icon-box mb-3">
+                                    <i class="fas fa-globe text-primary fa-2x"></i>
+                                </div>
+                                <h5 class="card-title">Trabajo Remoto</h5>
+                                <p class="card-text text-muted">Trabajo con clientes de todo el mundo de forma remota
+                                    sin problemas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block extra_css %}
+<style>
+
+</style>
 {% endblock %}
