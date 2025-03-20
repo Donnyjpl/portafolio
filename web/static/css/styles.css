@@ -706,3 +706,91 @@ footer .col-md-4 {
         /* Aumenta el tamaño del título en pantallas pequeñas */
     }
 }
+
+
+    /* Fondo gris claro para la sección "page-header" */
+    .page-header {
+        position: relative;
+        background-color: #f0f0f0; /* Gris claro */
+        padding: 50px 0; /* Ajuste de padding si es necesario */
+        margin-top: 80px; /* Ajustar este valor para crear el espacio necesario */
+    }
+
+    .divider-custom {
+        margin: 1.25rem 0 1.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .divider-custom .divider-custom-line {
+        width: 100%;
+        max-width: 7rem;
+        height: 0.25rem;
+        background-color: #ffffff;
+        border-radius: 1rem;
+        border-color: #ffffff;
+    }
+
+    .divider-custom .divider-custom-line:first-child {
+        margin-right: 1rem;
+    }
+
+    .divider-custom .divider-custom-line:last-child {
+        margin-left: 1rem;
+    }
+
+    .divider-custom .divider-custom-icon {
+        font-size: 1.5rem;
+    }
+
+    .contact-item .icon {
+        min-width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Animaciones al hacer hover */
+    .contact-form .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2) !important;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background-color: #007bff;
+        color: white;
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+    }
+
+    /* Agregar efecto a los inputs al enfocar */
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    }
+
+    /* Mejorar cards de FAQ */
+    .card {
+        transition: all 0.3s ease;
+        height: 100%; /* Asegura que todas las cards tengan la misma altura */
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .icon-box {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
