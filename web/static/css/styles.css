@@ -15,6 +15,96 @@
     --border-radius: 8px;
 }
 
+/* Estilos para pantallas grandes */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        color: #333;  /* Color oscuro para contraste con fondo claro */
+        font-size: 1.05rem;  /* Tamaño ligeramente más grande */
+        font-weight: 500;  /* Peso medio */
+        padding: 10px 16px;  /* Buen espacio alrededor */
+        margin: 0 3px;  /* Separación entre elementos del menú */
+        transition: color 0.3s ease;  /* Transición suave de color */
+    }
+    
+    .navbar-nav .nav-link:hover {
+        color: #0056b3;  /* Color más destacado al pasar el cursor */
+    }
+    
+    .navbar-nav .nav-link.active {
+        color: #0056b3;  /* Color vivo para la página activa */
+        font-weight: 600;  /* Más negrita para destacar */
+        position: relative;  /* Para el indicador de activo */
+    }
+    
+    /* Indicador visual para el elemento activo */
+    .navbar-nav .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 16px;
+        right: 16px;
+        height: 3px;
+        background-color: #0056b3;
+        border-radius: 2px;
+    }
+}
+
+@media (max-width: 991px) {
+    /* Ajustes para el menú en dispositivos móviles */
+    .navbar-collapse {
+        background-color: #343a40;
+        padding: 15px;  /* Aumentado el padding */
+        border-radius: 0 0 8px 8px;
+        margin-top: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Sombra para mejor separación visual */
+    }
+    
+    /* Mejora la visibilidad de los ítems del menú */
+    .navbar-nav .nav-item {
+        padding: 8px 0;  /* Más espacio vertical */
+        border-bottom: 1px solid rgba(255,255,255,0.15);  /* Línea separadora más visible */
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mejora la legibilidad del texto del menú en móvil */
+    .navbar-nav .nav-link {
+        color: #ffffff !important;  /* Texto blanco para contraste con fondo oscuro */
+        font-size: 1.1rem;  /* Texto más grande */
+        font-weight: 500;  /* Peso medio */
+        letter-spacing: 0.5px;  /* Mejor espaciado entre letras */
+        padding: 8px 15px;  /* Más área táctil */
+    }
+    
+    /* Estilo para enlaces activos en móvil */
+    .navbar-nav .nav-link.active {
+        color: #70c1ff !important;  /* Color más brillante para destacar */
+        font-weight: 600;  /* Más negrita */
+        background-color: rgba(255, 255, 255, 0.1);  /* Fondo sutil para destacar */
+        border-radius: 5px;  /* Bordes redondeados */
+    }
+    
+    /* Asegúrate que el botón hamburguesa sea visible */
+    .navbar-toggler {
+        border: 2px solid rgba(255,255,255,0.6);  /* Borde más visible */
+        padding: 6px 10px;  /* Botón más grande */
+    }
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;  /* Icono hamburguesa más visible */
+    }
+    
+    /* Asegúrate que el menú desplegable aparezca debajo de la navbar */
+    .navbar-collapse {
+        position: absolute;
+        top: 56px; /* Ajusta según la altura de tu navbar */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}
 /* Reset y Elementos Básicos */
 * {
     margin: 0;
@@ -111,39 +201,7 @@ img {
     z-index: 9999;
 }
 
-@media (max-width: 991px) {
-    /* Ajustes para el menú en dispositivos móviles */
-    .navbar-collapse {
-        background-color: #343a40;
-        padding: 10px;
-        border-radius: 0 0 8px 8px;
-        margin-top: 10px;
-    }
-    
-    /* Mejora la visibilidad de los ítems del menú */
-    .navbar-nav .nav-item {
-        padding: 5px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .navbar-nav .nav-item:last-child {
-        border-bottom: none;
-    }
-    
-    /* Asegúrate que el botón hamburguesa sea visible */
-    .navbar-toggler {
-        border: 1px solid rgba(255,255,255,0.5);
-    }
-    
-    /* Asegúrate que el menú desplegable aparezca debajo de la navbar */
-    .navbar-collapse {
-        position: absolute;
-        top: 56px; /* Ajusta según la altura de tu navbar */
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-}
+
 /* Estilo para el fondo del loader */
 #loading img {
     width: 50px; /* Tamaño del loader */

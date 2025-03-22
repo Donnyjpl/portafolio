@@ -85,6 +85,7 @@ WSGI_APPLICATION = "portafolio.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -98,9 +99,10 @@ DATABASES = {
             'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
         },
       } 
+
 }
 
-# Password validation
+#Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -136,12 +138,8 @@ USE_TZ = True
 
 #Para el manejo de archivos de medios
 STATIC_URL = '/static/'
-
-
-
 STATIC_ROOT='/var/www/donnyplaza/staticfiles'
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = '/var/www/donnyplaza/media'
 
 # Default primary key field type
