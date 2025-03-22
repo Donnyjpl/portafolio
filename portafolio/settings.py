@@ -34,6 +34,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = False
 
 ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','cv852lcb4alc8u6tur1g.147.93.67.92']
@@ -96,7 +97,7 @@ DATABASES = {
             'client_encoding': 'UTF8',  # Asegúrate de que la codificación del cliente sea UTF-8
             'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
         },
-    }
+      } 
 }
 
 # Password validation
@@ -135,7 +136,10 @@ USE_TZ = True
 
 #Para el manejo de archivos de medios
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf2a8e13cbff7676e078eacb54f44739ba8c692e
 STATIC_ROOT='/var/www/donnyplaza/staticfiles'
 MEDIA_URL = '/media/'
 
