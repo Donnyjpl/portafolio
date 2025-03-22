@@ -83,14 +83,8 @@ WSGI_APPLICATION = "portafolio.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+""" 
 
-<<<<<<< HEAD:portafolio/settings.pyes
-#DATABASES = {
- #   "default": {
-  #      "ENGINE": "django.db.backends.sqlite3",
-   #     "NAME": BASE_DIR / "db.sqlite3",
-    #}
-#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -102,14 +96,14 @@ DATABASES = {
         'OPTIONS': {
             'client_encoding': 'UTF8',  # Asegúrate de que la codificación del cliente sea UTF-8
             'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
-        },
-=======
+        }, """
+
 # Configuración de la base de datos
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
->>>>>>> c554f7f16d1b4411f74073bdc71572e57a466f4d:portafolio/settings.py
+
     }
 }
 
