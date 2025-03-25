@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Mi Portafolio{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Bienvenido a mi portafolio, donde muestro mis proyectos y habilidades en desarrollo web, diseño, aplicaciones y más.{% endblock %}">
+    <title>{% block title %}Portafolio | Donni Plaza - Desarrollador Web y Soluciones Tecnológicas{% endblock %}</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/favi1.ico' %}" type="image/x-icon">
@@ -75,7 +76,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <a href="https://wa.me/+56954363425" class="whatsapp-fijo" target="_blank">
+    <a href="https://wa.me/+56954363425" class="whatsapp-fijo" target="_blank"  aria-label="Enviar un mensaje por WhatsApp">
         <div
             style="text-align: center; color: hsla(178, 81%, 15%, 0.685); font-weight: bold; font-size: 14px; margin-bottom: 5px;">
             ¡Hablemos!

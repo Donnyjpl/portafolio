@@ -99,8 +99,7 @@ DATABASES = {
             'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
         },
       } 
-
-}
+    }
 
 #Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -140,6 +139,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT='/var/www/donnyplaza/staticfiles'
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = '/var/www/donnyplaza/media'
 
 # Default primary key field type
