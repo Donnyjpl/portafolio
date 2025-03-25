@@ -86,18 +86,22 @@ WSGI_APPLICATION = "portafolio.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-
-# Configuración de la base de datos
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST', default='localhost'),
+        'PORT': env.int('DATABASE_PORT', default=5432),
+        'OPTIONS': {
+            'client_encoding': 'UTF8',  # Asegúrate de que la codificación del cliente sea UTF-8
+            'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
+        },
+      } 
     }
-}
 
-
-# Password validation
+#Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
