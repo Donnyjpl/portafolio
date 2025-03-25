@@ -15,6 +15,16 @@
     --border-radius: 8px;
 }
 
+/* Estilos generales para la navbar */
+.navbar {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Estilos para pantallas grandes */
 @media (min-width: 992px) {
     .navbar-nav .nav-link {
@@ -49,57 +59,54 @@
     }
 }
 
+/* Estilos para dispositivos móviles */
 @media (max-width: 991px) {
     /* Ajustes para el menú en dispositivos móviles */
     .navbar-collapse {
-        background-color: #343a40;
-        padding: 15px;  /* Aumentado el padding */
+        background-color: #343a40 !important; /* !important para sobrescribir otros estilos */
+        padding: 15px;
         border-radius: 0 0 8px 8px;
         margin-top: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Sombra para mejor separación visual */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        max-width: 100%;
     }
     
-    /* Mejora la visibilidad de los ítems del menú */
+    /* Fuerza el texto blanco en los enlaces */
+    .navbar-nav .nav-link,
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-dark .navbar-nav .nav-link {
+        color: #ffffff !important; /* Texto blanco con !important */
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 8px 15px;
+    }
+    
+    /* Asegura que el enlace activo también tenga buen contraste */
+    .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link.active {
+        color: #70c1ff !important; /* Color brillante para destacar */
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+    
+    /* Mejora visibilidad de los ítems */
     .navbar-nav .nav-item {
-        padding: 8px 0;  /* Más espacio vertical */
-        border-bottom: 1px solid rgba(255,255,255,0.15);  /* Línea separadora más visible */
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
     
     .navbar-nav .nav-item:last-child {
         border-bottom: none;
     }
     
-    /* Mejora la legibilidad del texto del menú en móvil */
-    .navbar-nav .nav-link {
-        color: #ffffff !important;  /* Texto blanco para contraste con fondo oscuro */
-        font-size: 1.1rem;  /* Texto más grande */
-        font-weight: 500;  /* Peso medio */
-        letter-spacing: 0.5px;  /* Mejor espaciado entre letras */
-        padding: 8px 15px;  /* Más área táctil */
-    }
-    
-    /* Estilo para enlaces activos en móvil */
-    .navbar-nav .nav-link.active {
-        color: #70c1ff !important;  /* Color más brillante para destacar */
-        font-weight: 600;  /* Más negrita */
-        background-color: rgba(255, 255, 255, 0.1);  /* Fondo sutil para destacar */
-        border-radius: 5px;  /* Bordes redondeados */
-    }
-    
-    /* Asegúrate que el botón hamburguesa sea visible */
-    .navbar-toggler {
-        border: 2px solid rgba(255,255,255,0.6);  /* Borde más visible */
-        padding: 6px 10px;  /* Botón más grande */
-    }
-    
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;  /* Icono hamburguesa más visible */
-    }
-    
-    /* Asegúrate que el menú desplegable aparezca debajo de la navbar */
+    /* Asegura que el menú está posicionado correctamente */
     .navbar-collapse {
         position: absolute;
-        top: 56px; /* Ajusta según la altura de tu navbar */
+        top: 56px; /* Ajusta según la altura exacta de tu navbar */
         left: 0;
         right: 0;
         z-index: 1000;
