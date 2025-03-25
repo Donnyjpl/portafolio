@@ -1,4 +1,3 @@
-<!-- Plantilla Base (base.html) -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -8,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Portafolio{% endblock %}</title>
     
- <!-- Favicon -->
- <link rel="icon" href="{% static 'img/favi1.ico' %}" type="image/x-icon">
-
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favi1.ico' %}" type="image/x-icon">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,30 +39,31 @@
     <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
         <img src="{% static 'img/ajax-loader.gif' %}" alt="Cargando...">
     </div>
-    <!-- Navbar -->
-    <!-- Navbar -->
+    
+    <!-- Navbar mejorada -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'img/logo1.png' %}" alt="Logo" width="100">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}" aria-current="{% if request.path == '/' %}page{% endif %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/proyectos/' in request.path %}active{% endif %}" href="{% url 'proyectos' %}">Proyectos</a>
+                        <a class="nav-link {% if '/proyectos/' in request.path %}active{% endif %}" href="{% url 'proyectos' %}" aria-current="{% if '/proyectos/' in request.path %}page{% endif %}">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}" href="{% url 'about' %}">Sobre Mí</a>
+                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}" href="{% url 'about' %}" aria-current="{% if '/sobre-mi/' in request.path %}page{% endif %}">Sobre Mí</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}" href="{% url 'contacto' %}">Contacto</a>
+                        <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}" href="{% url 'contacto' %}" aria-current="{% if '/contacto/' in request.path %}page{% endif %}">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -146,6 +145,26 @@
             }
         });
     </script>
+    
+    <!-- Ajuste de navbar para dispositivos móviles -->
+    <script>
+        // Función para ajustar la navbar según el tamaño de pantalla
+        function adjustNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (window.innerWidth < 992) {
+                navbar.classList.remove('navbar-light', 'bg-light');
+                navbar.classList.add('navbar-dark', 'bg-dark');
+            } else {
+                navbar.classList.remove('navbar-dark', 'bg-dark');
+                navbar.classList.add('navbar-light', 'bg-light');
+            }
+        }
+        
+        // Ejecutar al cargar y al cambiar el tamaño de pantalla
+        window.addEventListener('load', adjustNavbar);
+        window.addEventListener('resize', adjustNavbar);
+    </script>
+    
     {% block extra_js %}{% endblock %}
 </body>
 
