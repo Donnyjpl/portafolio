@@ -4,10 +4,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block meta_description %}Bienvenido a mi portafolio, donde muestro mis proyectos y habilidades en desarrollo web, diseño, aplicaciones y más.{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description"
+        content="{% block meta_description %}Descubre mi portafolio como desarrollador web, con proyectos en Django, diseño y soluciones tecnológicas para tu página web.{% endblock %}">
+
     <title>{% block title %}Portafolio | Donni Plaza - Desarrollador Web y Soluciones Tecnológicas{% endblock %}</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/favi1.ico' %}" type="image/x-icon">
 
@@ -40,7 +42,7 @@
     <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
         <img src="{% static 'img/ajax-loader.gif' %}" alt="Cargando...">
     </div>
-    
+
     <!-- Navbar mejorada -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         <div class="container">
@@ -48,35 +50,43 @@
                 <img src="{% static 'img/logo1.png' %}" alt="Logo" width="100">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}" aria-current="{% if request.path == '/' %}page{% endif %}">Inicio</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}"
+                            aria-current="{% if request.path == '/' %}page{% endif %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/proyectos/' in request.path %}active{% endif %}" href="{% url 'proyectos' %}" aria-current="{% if '/proyectos/' in request.path %}page{% endif %}">Proyectos</a>
+                        <a class="nav-link {% if '/proyectos/' in request.path %}active{% endif %}"
+                            href="{% url 'proyectos' %}"
+                            aria-current="{% if '/proyectos/' in request.path %}page{% endif %}">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}" href="{% url 'about' %}" aria-current="{% if '/sobre-mi/' in request.path %}page{% endif %}">Sobre Mí</a>
+                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}"
+                            href="{% url 'about' %}"
+                            aria-current="{% if '/sobre-mi/' in request.path %}page{% endif %}">Sobre Mí</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}" href="{% url 'contacto' %}" aria-current="{% if '/contacto/' in request.path %}page{% endif %}">Contacto</a>
+                        <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}"
+                            href="{% url 'contacto' %}"
+                            aria-current="{% if '/contacto/' in request.path %}page{% endif %}">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <!-- Contenido Principal -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <a href="https://wa.me/+56954363425" class="whatsapp-fijo" target="_blank"  aria-label="Enviar un mensaje por WhatsApp">
+    <a href="https://wa.me/+56954363425" class="whatsapp-fijo" target="_blank"
+        aria-label="Enviar un mensaje por WhatsApp">
         <div
             style="text-align: center; color: hsla(178, 81%, 15%, 0.685); font-weight: bold; font-size: 14px; margin-bottom: 5px;">
             ¡Hablemos!
@@ -84,42 +94,41 @@
         <img src="{% static 'img/ws1.png' %}" alt="WhatsApp" width="60" height="60"
             style="border-radius: 50%; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);">
     </a>
-    
-    <!-- Footer -->
-    <footer class="footer mt-5 py-4 bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5 class="mb-3"><span class="text-primary">&lt;</span>Donni Plaza<span
-                            class="text-primary">/&gt;</span></h5>
-                    <p>Ingeniero en Informática especializado en desarrollo web y aplicaciones.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="mb-3">Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
-                        <li><a href="{% url 'proyectos' %}" class="text-white">Proyectos</a></li>
-                        <li><a href="{% url 'about' %}" class="text-white">Sobre Mí</a></li>
-                        <li><a href="{% url 'contacto' %}" class="text-white">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="mb-3">Conéctate</h5>
-                    <div class="social-icons">
-                        <a href="https://github.com/Donnyjpl/" target="_blank" class="text-white me-2"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank"
-                            class="text-white me-2"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:donnyjpl@email.com" class="text-white"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
+
+   <!-- Footer -->
+<footer class="footer mt-5 py-4 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="mb-3"><span class="text-primary">&lt;</span>Donni Plaza<span class="text-primary">/&gt;</span></h5>
+                <p>Ingeniero en Informática especializado en desarrollo web y aplicaciones.</p>
             </div>
-            <hr>
-            <div class="text-center">
-                <p>&copy; {% now "Y" %} Donni Plaza. Todos los derechos reservados.</p>
+            <div class="col-md-4">
+                <h5 class="mb-3">Enlaces Rápidos</h5>
+                <ul class="list-unstyled">
+                    <!-- Cambié el encabezado a h3 para mantener una jerarquía adecuada -->
+                    <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
+                    <li><a href="{% url 'proyectos' %}" class="text-white">Proyectos</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white">Sobre Mí</a></li>
+                    <li><a href="{% url 'contacto' %}" class="text-white">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="mb-3">Conéctate</h5>
+                <div class="social-icons">
+                    <a href="https://github.com/Donnyjpl/" target="_blank" class="text-white me-2" aria-label="Ver perfil de GitHub de Donnyjpl"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank" class="text-white me-2" aria-label="Ver perfil de LinkedIn de Donny J Plaza"><i class="fab fa-linkedin"></i></a>
+                    <!-- Corregí el atributo aria-label del enlace de correo -->
+                    <a href="mailto:donnyjpl@email.com" class="text-white" aria-label="Enviar correo electrónico a Donny J Plaza"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
-    </footer>
+        <hr>
+        <div class="text-center">
+            <p>&copy; {% now "Y" %} Donni Plaza. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -146,7 +155,7 @@
             }
         });
     </script>
-    
+
     <!-- Ajuste de navbar para dispositivos móviles -->
     <script>
         // Función para ajustar la navbar según el tamaño de pantalla
@@ -160,12 +169,11 @@
                 navbar.classList.add('navbar-light', 'bg-light');
             }
         }
-        
         // Ejecutar al cargar y al cambiar el tamaño de pantalla
         window.addEventListener('load', adjustNavbar);
         window.addEventListener('resize', adjustNavbar);
     </script>
-    
+
     {% block extra_js %}{% endblock %}
 </body>
 

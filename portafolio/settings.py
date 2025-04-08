@@ -35,7 +35,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =   False
+DEBUG =   True
 
 ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','cv852lcb4alc8u6tur1g.147.93.67.92']
 
@@ -88,17 +88,9 @@ WSGI_APPLICATION = "portafolio.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST', default='localhost'),
-        'PORT': env.int('DATABASE_PORT', default=5432),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',  # Asegúrate de que la codificación del cliente sea UTF-8
-            'sslmode': 'require',  # Si estás utilizando una conexión SSL (ajusta según tu configuración)
-        },
-      } 
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Aquí se crea el archivo SQLite en el directorio base del proyecto
+    }
     }
 
 #Password validation
