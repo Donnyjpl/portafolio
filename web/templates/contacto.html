@@ -8,12 +8,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center" data-aos="fade-up">
-                <h1>Contáctame<s</h1> <p class="lead">¿Tienes un proyecto interesante? Hablemos sobre ello.</p>
-                        <div class="divider-custom light">
-                            <div class="divider-custom-line"></div>
-                            <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="divider-custom-line"></div>
-                        </div>
+                <h1>Contáctame</h1>
+                <p class="lead">¿Tienes un proyecto interesante? Hablemos sobre ello.</p>
+                <div class="divider-custom light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,6 +130,17 @@
                             {% if form.mensaje.errors %}
                             <div class="invalid-feedback d-block text-danger">
                                 <i class="fas fa-exclamation-circle me-1"></i>{{ form.mensaje.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-robot text-primary me-2"></i> Verificación
+                            </label>
+                            {{ form.captcha }}
+                            {% if form.captcha.errors %}
+                            <div class="invalid-feedback d-block text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.captcha.errors }}
                             </div>
                             {% endif %}
                         </div>

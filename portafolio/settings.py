@@ -34,6 +34,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# En settings.py
 
 DEBUG =   True
 
@@ -48,8 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'web',
-]
+    'web',]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
