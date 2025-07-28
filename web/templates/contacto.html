@@ -68,7 +68,7 @@
             <div class="col-md-6" data-aos="fade-left">
                 <div class="contact-form bg-white p-4 rounded-4 shadow-lg h-100 border-top border-primary border-4">
                     <h3 class="fw-bold mb-4 text-primary">Envíame un Mensaje</h3>
-                    <form method="post">
+                    <form method="post" novalidate>
                         {% csrf_token %}
 
                         {% if messages %}
@@ -133,17 +133,22 @@
                             </div>
                             {% endif %}
                         </div>
+                        <!-- CAPTCHA con estilo y validación -->
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">
+                            <label for="{{ form.captcha.id_for_label }}" class="form-label fw-semibold">
                                 <i class="fas fa-robot text-primary me-2"></i> Verificación
                             </label>
                             {{ form.captcha }}
                             {% if form.captcha.errors %}
                             <div class="invalid-feedback d-block text-danger">
-                                <i class="fas fa-exclamation-circle me-1"></i>{{ form.captcha.errors }}
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                {{ form.captcha.errors }}
                             </div>
                             {% endif %}
                         </div>
+
+
+
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary rounded-3 px-4 py-2 shadow">

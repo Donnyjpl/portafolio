@@ -43,6 +43,7 @@ ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost'
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

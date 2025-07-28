@@ -78,24 +78,22 @@ class ContactoView(CreateView):
     model = Contacto
     form_class = ContactoForm
     template_name = 'contacto.html'
-    success_url = reverse_lazy('contacto_exito')
-
+    
     def form_valid(self, form):
-        # Guarda el formulario en la base de datos
-        response = super().form_valid(form)
-        # Obtener los datos del formulario
+        # Guarda el objeto, pero sin usar super()
+        form.save()
+
+        # Extraer datos y enviar correo
         nombre = form.cleaned_data['nombre']
         correo = form.cleaned_data['email']
         asunto = form.cleaned_data['asunto']
         mensaje = form.cleaned_data['mensaje']
 
-        # Crear el correo en formato texto plano y HTML para el administrador
+        # Composición del correo (como ya tienes)
         subject = f'Nuevo mensaje de contacto de {nombre}'
         from_email = correo
-        to_email = ['donnyjpl@gmail.com']  # Reemplaza con el correo del administrador
-        # Texto plano para el correo
+        to_email = ['donnyjpl@gmail.com']
         text_content = f'Nuevo mensaje de contacto de {nombre}\n\nCorreo: {correo}\n\nMensaje:\n{mensaje}'
-        # HTML para el correo
         html_content = f"""
             <html>
                 <body>
@@ -107,23 +105,16 @@ class ContactoView(CreateView):
                 </body>
             </html>
         """
-        # Crear el objeto de correo con texto plano y HTML
-        email = EmailMultiAlternatives(
-            subject,
-            text_content,
-            from_email,
-            to_email,
-        )
-        # Adjuntar el contenido HTML al correo
-        email.attach_alternative(html_content, "text/html")
-        # Enviar el correo al administrador
-        email.send(fail_silently=False)
-        # Mensaje de éxito para el usuario
-        messages.success(self.request, '¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.')
-        return response
 
-def contacto_exito(request):
-    return render(request, 'contacto_exito.html')
+        email = EmailMultiAlternatives(subject, text_content, from_email, to_email)
+        email.attach_alternative(html_content, "text/html")
+        email.send(fail_silently=False)
+
+        # Mensaje para el usuario
+        messages.success(self.request, '¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.')
+
+        # Volver a renderizar el formulario limpio
+        return self.render_to_response(self.get_context_data(form=ContactoForm()))
 
 def about_view(request):
     return render(request, 'about.html')
