@@ -559,8 +559,14 @@
     }
 
     /* Markdown en burbujas del asistente */
-    .msg-bubble p { margin: 0 0 6px 0; }
-    .msg-bubble p:last-child { margin-bottom: 0; }
+    .msg-bubble p {
+        margin: 0 0 6px 0;
+    }
+
+    .msg-bubble p:last-child {
+        margin-bottom: 0;
+    }
+
     .msg-bubble .chat-heading {
         font-weight: 700;
         font-size: 0.9rem;
@@ -569,25 +575,36 @@
         text-transform: uppercase;
         letter-spacing: 0.04em;
     }
+
     .msg-bubble .chat-list {
         margin: 4px 0 6px 0;
         padding-left: 18px;
     }
+
     .msg-bubble .chat-list li {
         margin-bottom: 3px;
         line-height: 1.55;
     }
+
     .msg-bubble .chat-code {
-        background: rgba(255,255,255,0.12);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 4px;
         padding: 1px 6px;
         font-family: 'Courier New', monospace;
         font-size: 0.82em;
         color: #7dd3fc;
     }
-    .msg-bubble strong { color: rgba(255,255,255,0.95); font-weight: 700; }
-    .msg-bubble em { color: rgba(255,255,255,0.75); font-style: italic; }
+
+    .msg-bubble strong {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 700;
+    }
+
+    .msg-bubble em {
+        color: rgba(255, 255, 255, 0.75);
+        font-style: italic;
+    }
 </style>
 
 <!-- ===== SECCIÓN CHAT IA ===== -->
@@ -604,7 +621,7 @@
                 {{ chat_title|default:"Habla con mi <span>Asistente IA</span>" }}
             </h2>
             <p class="chat-section-subtitle">
-                {{ chat_subtitle|default:"Obtén respuestas sobre mi trayectoria, habilidades y proyectos en tiempo
+                {{ "Obtén respuestas sobre mi trayectoria, habilidades y proyectos en tiempo
                 real." }}
             </p>
         </div>
