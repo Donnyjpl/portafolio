@@ -1,8 +1,11 @@
-<!-- Continuación de Detalle de Proyecto (proyecto_detalle.html) -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block title %}{{ proyecto.titulo }}{% endblock %}
+
+{% block extra_css %}
+<!-- Los estilos ahora están en el include o en styles.css -->
+{% endblock %}
 
 {% block content %}
 <!-- Proyecto Header -->
@@ -37,9 +40,10 @@
             <div class="col-lg-8 mx-auto">
                 <!-- Imagen Principal -->
                 <div class="project-main-img mb-4" data-aos="fade-up">
-                    <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}" class="img-fluid rounded shadow">
+                    <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}"
+                        class="img-fluid rounded shadow">
                 </div>
-                
+
                 <!-- Descripción -->
                 <div class="project-description mb-5" data-aos="fade-up">
                     <h2>Descripción del Proyecto</h2>
@@ -59,7 +63,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                
+
                 <!-- Galería de Imágenes -->
                 {% if proyecto.imagenes.all %}
                 <div class="project-gallery mb-5" data-aos="fade-up">
@@ -68,7 +72,8 @@
                         {% for imagen in proyecto.imagenes.all %}
                         <div class="col-md-6">
                             <div class="gallery-item">
-                                <img src="{{ imagen.imagen.url }}" alt="{{ imagen.titulo|default:proyecto.titulo }}" class="img-fluid rounded">
+                                <img src="{{ imagen.imagen.url }}" alt="{{ imagen.titulo|default:proyecto.titulo }}"
+                                    class="img-fluid rounded">
                                 {% if imagen.titulo %}
                                 <div class="caption">{{ imagen.titulo }}</div>
                                 {% endif %}
@@ -83,6 +88,10 @@
     </div>
 </section>
 
+{% include 'includes/_chat_ia.html' with chat_url='/api/chat/'|add:proyecto.slug|add:'/' chat_title='Chatea con IA sobre
+este Proyecto' chat_subtitle='Obtén análisis técnico profesional, evaluaciones de arquitectura y respuestas en tiempo
+real sobre este trabajo específico' suggested_questions=suggested_questions %}
+
 <!-- Proyectos Relacionados -->
 <section class="related-projects py-5 bg-light">
     <div class="container">
@@ -95,9 +104,11 @@
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="{{ rel_proyecto.imagen_principal.url }}" alt="{{ rel_proyecto.titulo }}" class="img-fluid">
+                        <img src="{{ rel_proyecto.imagen_principal.url }}" alt="{{ rel_proyecto.titulo }}"
+                            class="img-fluid">
                         <div class="overlay">
-                            <a href="{% url 'proyecto_detalle' rel_proyecto.slug %}" class="btn btn-primary">Ver Detalles</a>
+                            <a href="{% url 'proyecto_detalle' rel_proyecto.slug %}" class="btn btn-primary">Ver
+                                Detalles</a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -115,4 +126,8 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- El JS ahora está en el include -->
 {% endblock %}

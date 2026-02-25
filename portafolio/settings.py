@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')  # Cargar desde el archivo .env
 # SECURITY WARNING: don't run with debug turned on in production!
 # En settings.py
 
-DEBUG =   True
+DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['donniplaza.com', 'www.donniplaza.com', '127.0.0.1','localhost','cv852lcb4alc8u6tur1g.147.93.67.92']
 
@@ -128,12 +128,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-#Para el manejo de archivos de medios
+# Para el manejo de archivos de medios
 STATIC_URL = '/static/'
-STATIC_ROOT='/var/www/donnyplaza/staticfiles'
+STATIC_ROOT = env('STATIC_ROOT', default=str(BASE_DIR / 'staticfiles'))
 MEDIA_URL = '/media/'
+MEDIA_ROOT = env('MEDIA_ROOT', default=str(BASE_DIR / 'media'))
 
-MEDIA_ROOT = '/var/www/donnyplaza/media'
+# Email de destino para mensajes de contacto
+CONTACT_EMAIL = env('CONTACT_EMAIL', default='admin@localhost')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

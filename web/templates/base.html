@@ -38,6 +38,10 @@
 </script>
 
 <body>
+    <form method="get" action="#">
+        <input type="text" name="q" placeholder="Buscar proyectos..." required>
+        <button type="submit">Buscar</button>
+    </form>
     <!-- Contenedor del loader (se muestra mientras la página carga) -->
     <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
         <img src="{% static 'img/ajax-loader.gif' %}" alt="Cargando...">
@@ -95,40 +99,44 @@
             style="border-radius: 50%; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);">
     </a>
 
-   <!-- Footer -->
-<footer class="footer mt-5 py-4 bg-dark text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h5 class="mb-3"><span class="text-primary">&lt;</span>Donni Plaza<span class="text-primary">/&gt;</span></h5>
-                <p>Ingeniero en Informática especializado en desarrollo web y aplicaciones.</p>
-            </div>
-            <div class="col-md-4">
-                <h5 class="mb-3">Enlaces Rápidos</h5>
-                <ul class="list-unstyled">
-                    <!-- Cambié el encabezado a h3 para mantener una jerarquía adecuada -->
-                    <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
-                    <li><a href="{% url 'proyectos' %}" class="text-white">Proyectos</a></li>
-                    <li><a href="{% url 'about' %}" class="text-white">Sobre Mí</a></li>
-                    <li><a href="{% url 'contacto' %}" class="text-white">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5 class="mb-3">Conéctate</h5>
-                <div class="social-icons">
-                    <a href="https://github.com/Donnyjpl/" target="_blank" class="text-white me-2" aria-label="Ver perfil de GitHub de Donnyjpl"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank" class="text-white me-2" aria-label="Ver perfil de LinkedIn de Donny J Plaza"><i class="fab fa-linkedin"></i></a>
-                    <!-- Corregí el atributo aria-label del enlace de correo -->
-                    <a href="mailto:donnyjpl@email.com" class="text-white" aria-label="Enviar correo electrónico a Donny J Plaza"><i class="fas fa-envelope"></i></a>
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3"><span class="text-primary">&lt;</span>Donni Plaza<span
+                            class="text-primary">/&gt;</span></h5>
+                    <p>Ingeniero en Informática especializado en desarrollo web y aplicaciones.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <!-- Cambié el encabezado a h3 para mantener una jerarquía adecuada -->
+                        <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
+                        <li><a href="{% url 'proyectos' %}" class="text-white">Proyectos</a></li>
+                        <li><a href="{% url 'about' %}" class="text-white">Sobre Mí</a></li>
+                        <li><a href="{% url 'contacto' %}" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Conéctate</h5>
+                    <div class="social-icons">
+                        <a href="https://github.com/Donnyjpl/" target="_blank" class="text-white me-2"
+                            aria-label="Ver perfil de GitHub de Donnyjpl"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/donni-j-plaza-l/" target="_blank" class="text-white me-2"
+                            aria-label="Ver perfil de LinkedIn de Donny J Plaza"><i class="fab fa-linkedin"></i></a>
+                        <!-- Corregí el atributo aria-label del enlace de correo -->
+                        <a href="mailto:donnyjpl@email.com" class="text-white"
+                            aria-label="Enviar correo electrónico a Donny J Plaza"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; {% now "Y" %} Donni Plaza. Todos los derechos reservados.</p>
+            </div>
         </div>
-        <hr>
-        <div class="text-center">
-            <p>&copy; {% now "Y" %} Donni Plaza. Todos los derechos reservados.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -175,7 +183,7 @@
     </script>
 
     {% block extra_js %}{% endblock %}
-  
+
 </body>
 
 </html>

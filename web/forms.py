@@ -12,7 +12,6 @@ class ContactoForm(forms.ModelForm):
             'class': 'form-control',
             'placeholder': 'Escribe el texto que ves en la imagen',
 
-
         })
 
 
